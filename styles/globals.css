@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-h-screen bg-darkBlue font-outfit;
+  }
+
+  header {
+    @apply fixed top-0 left-0 right-0 mx-auto flex max-w-[719px] items-center justify-between bg-semiDarkBlue p-4 sm:rounded-lg md:top-6 lg:left-8 lg:bottom-8 lg:mx-0 lg:max-h-[960px] lg:w-24 lg:flex-col lg:justify-start lg:gap-y-[75px] lg:rounded-2xl lg:px-7 lg:py-8;
+  }
+}
+
+@layer components {
+  .icon {
+    @apply cursor-pointer text-greyishBlue hover:text-primaryRed md:h-5 md:w-5;
+  }
+}
