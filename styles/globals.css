@@ -5,16 +5,22 @@
 
 @layer base {
   body {
-    @apply min-h-screen bg-darkBlue font-outfit;
+    @apply min-h-screen bg-body-color font-outfit transition duration-300 dark:bg-d-body-color;
   }
 
-  header {
+  /* header {
     @apply fixed top-0 left-0 right-0 mx-auto flex max-w-[719px] items-center justify-between bg-semiDarkBlue p-4 sm:rounded-lg md:top-6 lg:left-8 lg:bottom-8 lg:mx-0 lg:max-h-[960px] lg:w-24 lg:flex-col lg:justify-start lg:gap-y-[75px] lg:rounded-2xl lg:px-7 lg:py-8;
-  }
+  } */
 }
 
 @layer components {
-  .icon {
+  /* .icon {
     @apply cursor-pointer text-greyishBlue hover:text-primaryRed md:h-5 md:w-5;
+  } */
+  .link {
+    @apply flex h-full w-full cursor-pointer items-center rounded-md text-text-color transition hover:bg-primary-color hover:text-sidebar-color dark:text-d-text-color dark:hover:bg-d-primary-color;
+  }
+  .active.link {
+    @apply dark:text-[white];
   }
 }

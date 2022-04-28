@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import { Header } from '../components/Header';
+import { SidebarMenu } from '../components/SidebarMenu';
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/logo.svg" />
       </Head>
 
-      <Header />
+      <SidebarMenu />
     </div>
   );
 };
