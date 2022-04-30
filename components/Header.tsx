@@ -58,6 +58,8 @@ export const Header = () => {
               alt="avatar"
               className="h-6 w-6 cursor-pointer rounded-full border-[1px] border-solid border-[#fff] md:h-8 md:w-8 lg:mt-auto"
             />
+
+            <div className=""></div>
           </div>
         </div>
       </div>
