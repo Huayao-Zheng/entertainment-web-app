@@ -15,7 +15,7 @@
 
 @layer components {
   .link {
-    @apply flex h-full w-full cursor-pointer items-center rounded-md text-text-color transition hover:bg-primary-color hover:text-sidebar-color dark:text-d-text-color dark:hover:bg-d-primary-color;
+    @apply flex h-full w-full cursor-pointer items-center whitespace-nowrap rounded-md text-text-color transition hover:bg-primary-color hover:text-sidebar-color dark:text-d-text-color dark:hover:bg-d-primary-color;
   }
   .active.link {
     @apply text-primaryRed hover:text-[white] dark:hover:text-primaryRed;

@@ -1,8 +1,10 @@
 import Head from 'next/head';
-import { SidebarMenu } from '../components/SidebarMenu';
 
 import { Movie } from '../typings';
 import requests from '../utils/requests';
+
+import { Search } from '../components/Search';
+import { SidebarMenu } from '../components/SidebarMenu';
 
 export type Props = {
   popularMovies: Movie[];
@@ -16,8 +18,12 @@ const Movies = ({ popularMovies }: Props) => {
         <title>Entertainment-web-app</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
+
       <SidebarMenu />
-      Movies
+
+      <main>
+        <Search />
+      </main>
     </div>
   );
 };

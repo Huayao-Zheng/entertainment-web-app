@@ -23,7 +23,10 @@ const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
       </Head>
 
       <SidebarMenu />
-      <Search />
+
+      <main className="relative left-[84px] min-h-screen w-[calc(100%-84px)] ">
+        <Search />
+      </main>
     </div>
   );
 };
