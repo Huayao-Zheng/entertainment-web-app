@@ -8,7 +8,6 @@ import {
   BiLogOut,
   BiMoon,
   BiMoviePlay,
-  BiSearch,
   BiSun,
   BiTv,
 } from 'react-icons/bi';
@@ -16,10 +15,6 @@ import { useDarkMode } from '../hook/useDarkMode';
 
 export const SidebarMenu = () => {
   const { pathname } = useRouter();
-
-  const activeIcon = (currentPathName: string) => {
-    return pathname === currentPathName ? 'icon text-[white]' : 'icon';
-  };
 
   const [darkMode, setDarkMode] = useDarkMode();
 
@@ -29,7 +24,7 @@ export const SidebarMenu = () => {
         <div className="flex items-center gap-x-4">
           <img src="/logo.svg" alt="logo" className="w-10" />
 
-          <div className="flex flex-col text-lg font-medium text-text-color dark:text-d-text-color">
+          <div className="flex flex-col text-lg font-medium text-text-color transition duration-300 dark:text-d-text-color">
             <span>Entertainment</span>
             <span>Web app</span>
           </div>
@@ -89,11 +84,26 @@ export const SidebarMenu = () => {
             </a>
           </li>
 
-          <li onClick={() => setDarkMode(!darkMode)} className="mt-3 h-12">
-            <div className="link">
-              <BiMoon className="min-w-[60px]" />
-              {/* <BiSun /> */}
-              <span>Light Mode</span>
+          <li className="mt-3 h-12">
+            <div className="link cursor-default hover:bg-primary-color-light hover:text-text-color dark:text-d-text-color">
+              {darkMode ? (
+                <>
+                  <BiSun className="min-w-[60px]" />
+                  <span>Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <BiMoon className="min-w-[60px]" />
+                  <span>Dark Mode</span>
+                </>
+              )}
+
+              <div className="flex h-full min-w-[60px] items-center justify-center">
+                <span
+                  onClick={() => setDarkMode(!darkMode)}
+                  className={`toggle-switch ${!darkMode && 'before:left-5'}`}
+                />
+              </div>
             </div>
           </li>
         </ul>

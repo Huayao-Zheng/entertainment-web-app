@@ -4,6 +4,7 @@ import { Movie, TV } from '../typings';
 import requests from '../utils/requests';
 
 import { SidebarMenu } from '../components/SidebarMenu';
+import { Search } from '../components/Search';
 
 export type Props = {
   trendingNow: Movie[];
@@ -22,6 +23,7 @@ const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
       </Head>
 
       <SidebarMenu />
+      <Search />
     </div>
   );
 };
