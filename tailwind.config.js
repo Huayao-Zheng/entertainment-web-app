@@ -12,7 +12,7 @@ module.exports = {
       'primary-color-light': '#f6f5ff',
       'toggle-color': '#ddd',
       'text-color': '#707070',
-      // dark theme
+      // d - dark theme
       'd-body-color': '#18191a',
       'd-sidebar-color': '#242526',
       'd-primary-color': '#3a3b3c',

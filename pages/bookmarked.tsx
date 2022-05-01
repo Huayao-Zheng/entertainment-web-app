@@ -1,19 +1,18 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { Header } from '../components/Header';
+import { SidebarMenu } from '../components/SidebarMenu';
 
-const Bookmark: NextPage = () => {
+const Bookmarked = () => {
   return (
     <div>
       <Head>
         <title>Entertainment-web-app</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <Header />
+      <SidebarMenu />
       Bookmark
     </div>
   );
 };
 
-export default Bookmark;
+export default Bookmarked;

@@ -5,11 +5,11 @@ import { Movie } from '../typings';
 import requests from '../utils/requests';
 
 export type Props = {
-  popularMovies: Movie[];
+  popularTVs: Movie[];
 };
 
-const Movies = ({ popularMovies }: Props) => {
-  console.log(popularMovies);
+const TVs = ({ popularTVs }: Props) => {
+  console.log(popularTVs);
   return (
     <div>
       <Head>
@@ -17,21 +17,19 @@ const Movies = ({ popularMovies }: Props) => {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <SidebarMenu />
-      Movies
+      popularTVs
     </div>
   );
 };
 
-export default Movies;
+export default TVs;
 
 export const getServerSideProps = async () => {
-  const fetchMovies = await fetch(requests.fetchMovies).then((res) =>
-    res.json()
-  );
+  const fetchTVs = await fetch(requests.fetchTVs).then((res) => res.json());
 
   return {
     props: {
-      popularMovies: fetchMovies.results,
+      popularTVs: fetchTVs.results,
     },
   };
 };

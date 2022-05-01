@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+
 import {
   BiBookmark,
   BiChevronRight,
@@ -15,11 +15,11 @@ import {
 import { useDarkMode } from '../hook/useDarkMode';
 
 export const SidebarMenu = () => {
-  //   const { pathname } = useRouter();
+  const { pathname } = useRouter();
 
-  //   const activeIcon = (currentPathName: string) => {
-  //     return pathname === currentPathName ? 'icon text-[white]' : 'icon';
-  //   };
+  const activeIcon = (currentPathName: string) => {
+    return pathname === currentPathName ? 'icon text-[white]' : 'icon';
+  };
 
   const [darkMode, setDarkMode] = useDarkMode();
 
@@ -41,30 +41,43 @@ export const SidebarMenu = () => {
       <div className="flex h-[calc(100%-48px)] flex-col justify-between">
         <div>
           <ul>
-            <li className="mt-3 h-12">
-              <a href="#" className="link active">
-                <BiHomeAlt className="min-w-[60px] text-xl" />
-                <span className="text-lg">Home</span>
-              </a>
-            </li>
-            <li className="mt-3 h-12">
-              <a href="#" className="link">
-                <BiMoviePlay className="min-w-[60px]" />
-                <span>Movies</span>
-              </a>
-            </li>
-            <li className="mt-3 h-12">
-              <a href="#" className="link">
-                <BiTv className="min-w-[60px]" />
-                <span>TV Series</span>
-              </a>
-            </li>
-            <li className="mt-3 h-12">
-              <a href="#" className="link">
-                <BiBookmark className="min-w-[60px]" />
-                <span>Bookmarked</span>
-              </a>
-            </li>
+            <Link href="/">
+              <li className="mt-3 h-12">
+                <a className={pathname == '/' ? 'link active' : 'link'}>
+                  <BiHomeAlt className="min-w-[60px] text-xl" />
+                  <span className="text-lg">Home</span>
+                </a>
+              </li>
+            </Link>
+
+            <Link href="/movies">
+              <li className="mt-3 h-12">
+                <a className={pathname == '/movies' ? 'link active' : 'link'}>
+                  <BiMoviePlay className="min-w-[60px]" />
+                  <span>Movies</span>
+                </a>
+              </li>
+            </Link>
+
+            <Link href="/tvs">
+              <li className="mt-3 h-12">
+                <a className={pathname == '/tvs' ? 'link active' : 'link'}>
+                  <BiTv className="min-w-[60px]" />
+                  <span>TV Series</span>
+                </a>
+              </li>
+            </Link>
+
+            <Link href="/bookmarked">
+              <li className="mt-3 h-12">
+                <a
+                  className={pathname == '/bookmarked' ? 'link active' : 'link'}
+                >
+                  <BiBookmark className="min-w-[60px]" />
+                  <span>Bookmarked</span>
+                </a>
+              </li>
+            </Link>
           </ul>
         </div>
 
@@ -81,10 +94,6 @@ export const SidebarMenu = () => {
               <BiMoon className="min-w-[60px]" />
               {/* <BiSun /> */}
               <span>Light Mode</span>
-            </div>
-
-            <div>
-              <span></span>
             </div>
           </li>
         </ul>

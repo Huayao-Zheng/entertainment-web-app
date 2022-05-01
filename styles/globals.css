@@ -14,13 +14,10 @@
 }
 
 @layer components {
-  /* .icon {
-    @apply cursor-pointer text-greyishBlue hover:text-primaryRed md:h-5 md:w-5;
-  } */
   .link {
     @apply flex h-full w-full cursor-pointer items-center rounded-md text-text-color transition hover:bg-primary-color hover:text-sidebar-color dark:text-d-text-color dark:hover:bg-d-primary-color;
   }
   .active.link {
-    @apply dark:text-[white];
+    @apply text-primaryRed hover:text-[white] dark:hover:text-primaryRed;
   }
 }
