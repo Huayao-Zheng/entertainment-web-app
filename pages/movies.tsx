@@ -19,8 +19,6 @@ const Movies = ({ popularMovies }: Props) => {
         <link rel="icon" href="/logo.svg" />
       </Head>
 
-      <SidebarMenu />
-
       <main>
         <Search />
       </main>

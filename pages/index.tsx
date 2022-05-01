@@ -16,18 +16,16 @@ const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
   console.log({ trendingNow, popularMovies, popularTVs });
 
   return (
-    <div>
+    <>
       <Head>
         <title>Entertainment-web-app</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
 
-      <SidebarMenu />
-
       <main className="relative left-[84px] min-h-screen w-[calc(100%-84px)] ">
         <Search />
       </main>
-    </div>
+    </>
   );
 };
 

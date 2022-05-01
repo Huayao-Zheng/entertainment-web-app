@@ -16,7 +16,6 @@ const TVs = ({ popularTVs }: Props) => {
         <title>Entertainment-web-app</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <SidebarMenu />
       popularTVs
     </div>
   );

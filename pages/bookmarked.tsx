@@ -9,7 +9,6 @@ const Bookmarked = () => {
         <title>Entertainment-web-app</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <SidebarMenu />
       Bookmark
     </div>
   );

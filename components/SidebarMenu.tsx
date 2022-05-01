@@ -57,9 +57,8 @@ export const SidebarMenu = () => {
                 <a className={pathname == '/' ? 'link active' : 'link'}>
                   <BiHomeAlt className="min-w-[60px] text-xl" />
                   <span
-                    className={`text-lg transition-all duration-300 ${
-                      collapseSidebar && 'opacity-0'
-                    }`}
+                    className={`text-lg transition-all duration-300 
+                    ${collapseSidebar && 'opacity-0'}`}
                   >
                     Home
                   </span>
@@ -72,9 +71,8 @@ export const SidebarMenu = () => {
                 <a className={pathname == '/movies' ? 'link active' : 'link'}>
                   <BiMoviePlay className="min-w-[60px]" />
                   <span
-                    className={`text-lg transition-all duration-300 ${
-                      collapseSidebar && 'opacity-0'
-                    }`}
+                    className={`text-lg transition-all duration-300 
+                    ${collapseSidebar && 'opacity-0'}`}
                   >
                     Movies
                   </span>
@@ -87,9 +85,8 @@ export const SidebarMenu = () => {
                 <a className={pathname == '/tvs' ? 'link active' : 'link'}>
                   <BiTv className="min-w-[60px]" />
                   <span
-                    className={`text-lg transition-all duration-300 ${
-                      collapseSidebar && 'opacity-0'
-                    }`}
+                    className={`text-lg transition-all duration-300 
+                    ${collapseSidebar && 'opacity-0'}`}
                   >
                     TV Series
                   </span>
@@ -104,9 +101,8 @@ export const SidebarMenu = () => {
                 >
                   <BiBookmark className="min-w-[60px]" />
                   <span
-                    className={`text-lg transition-all duration-300 ${
-                      collapseSidebar && 'opacity-0'
-                    }`}
+                    className={`text-lg transition-all duration-300 
+                    ${collapseSidebar && 'opacity-0'}`}
                   >
                     Bookmarked
                   </span>
@@ -121,9 +117,8 @@ export const SidebarMenu = () => {
             <a href="#" className="link">
               <BiLogOut className="min-w-[60px]" />
               <span
-                className={`text-lg transition-all duration-300 ${
-                  collapseSidebar && 'opacity-0'
-                }`}
+                className={`text-lg transition-all duration-300 
+                ${collapseSidebar && 'opacity-0'}`}
               >
                 Logout
               </span>
@@ -136,9 +131,8 @@ export const SidebarMenu = () => {
                 <>
                   <BiSun className="min-w-[60px]" />
                   <span
-                    className={`text-lg transition-all duration-300 ${
-                      collapseSidebar && 'opacity-0'
-                    }`}
+                    className={`text-lg transition-all duration-300 
+                    ${collapseSidebar && 'opacity-0'}`}
                   >
                     Light Mode
                   </span>
@@ -147,9 +141,8 @@ export const SidebarMenu = () => {
                 <>
                   <BiMoon className="min-w-[60px]" />
                   <span
-                    className={`text-lg transition-all duration-300 ${
-                      collapseSidebar && 'opacity-0'
-                    }`}
+                    className={`text-lg transition-all duration-300 
+                    ${collapseSidebar && 'opacity-0'}`}
                   >
                     Dark Mode
                   </span>
