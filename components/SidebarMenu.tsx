@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
-
 import { useDarkMode } from '../hook/useDarkMode';
-
+import { useRecoilState } from 'recoil';
+import { collapseState } from '../atoms/collapse';
 import {
   BiBookmark,
-  BiChevronRight,
+  BiChevronLeft,
   BiHomeAlt,
   BiLogOut,
   BiMoon,
@@ -17,15 +16,13 @@ import {
 
 export const SidebarMenu = () => {
   const { pathname } = useRouter();
-
   const [darkMode, setDarkMode] = useDarkMode();
-
-  const [collapseSidebar, setCollapseSidebar] = useState(false);
+  const [collapse, setCollapse] = useRecoilState(collapseState);
 
   return (
     <nav
       className={`fixed top-0 left-0 z-50 h-full w-[250px] bg-sidebar-color px-3 py-4 transition-all duration-300 dark:bg-d-sidebar-color ${
-        collapseSidebar && 'w-[84px]'
+        collapse && 'w-[84px]'
       }`}
     >
       <header className="relative">
@@ -34,18 +31,19 @@ export const SidebarMenu = () => {
 
           <div
             className={`flex flex-col text-lg font-medium text-text-color transition duration-300 dark:text-d-text-color ${
-              collapseSidebar && 'opacity-0'
+              collapse && 'opacity-0'
             }`}
           >
             <span>Entertainment</span>
             <span className="-mt-2">Web app</span>
           </div>
         </div>
-        <BiChevronRight
-          onClick={() => setCollapseSidebar(!collapseSidebar)}
+
+        <BiChevronLeft
+          onClick={() => setCollapse(!collapse)}
           className={`absolute top-1/2 -right-6 flex h-6 w-6 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-primary-color text-[white] transition-all duration-300 
           ${darkMode && 'translate-y-0'} 
-          ${collapseSidebar && '-rotate-180'}`}
+          ${collapse && 'rotate-180'}`}
         />
       </header>
 
@@ -58,7 +56,7 @@ export const SidebarMenu = () => {
                   <BiHomeAlt className="min-w-[60px] text-xl" />
                   <span
                     className={`text-lg transition-all duration-300 
-                    ${collapseSidebar && 'opacity-0'}`}
+                    ${collapse && 'opacity-0'}`}
                   >
                     Home
                   </span>
@@ -72,7 +70,7 @@ export const SidebarMenu = () => {
                   <BiMoviePlay className="min-w-[60px]" />
                   <span
                     className={`text-lg transition-all duration-300 
-                    ${collapseSidebar && 'opacity-0'}`}
+                    ${collapse && 'opacity-0'}`}
                   >
                     Movies
                   </span>
@@ -86,7 +84,7 @@ export const SidebarMenu = () => {
                   <BiTv className="min-w-[60px]" />
                   <span
                     className={`text-lg transition-all duration-300 
-                    ${collapseSidebar && 'opacity-0'}`}
+                    ${collapse && 'opacity-0'}`}
                   >
                     TV Series
                   </span>
@@ -102,7 +100,7 @@ export const SidebarMenu = () => {
                   <BiBookmark className="min-w-[60px]" />
                   <span
                     className={`text-lg transition-all duration-300 
-                    ${collapseSidebar && 'opacity-0'}`}
+                    ${collapse && 'opacity-0'}`}
                   >
                     Bookmarked
                   </span>
@@ -118,7 +116,7 @@ export const SidebarMenu = () => {
               <BiLogOut className="min-w-[60px]" />
               <span
                 className={`text-lg transition-all duration-300 
-                ${collapseSidebar && 'opacity-0'}`}
+                ${collapse && 'opacity-0'}`}
               >
                 Logout
               </span>
@@ -132,7 +130,7 @@ export const SidebarMenu = () => {
                   <BiSun className="min-w-[60px]" />
                   <span
                     className={`text-lg transition-all duration-300 
-                    ${collapseSidebar && 'opacity-0'}`}
+                    ${collapse && 'opacity-0'}`}
                   >
                     Light Mode
                   </span>
@@ -142,7 +140,7 @@ export const SidebarMenu = () => {
                   <BiMoon className="min-w-[60px]" />
                   <span
                     className={`text-lg transition-all duration-300 
-                    ${collapseSidebar && 'opacity-0'}`}
+                    ${collapse && 'opacity-0'}`}
                   >
                     Dark Mode
                   </span>

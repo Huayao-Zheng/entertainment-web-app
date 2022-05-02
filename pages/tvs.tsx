@@ -1,14 +1,17 @@
 import Head from 'next/head';
-import { SidebarMenu } from '../components/SidebarMenu';
-
-import { Movie } from '../typings';
 import requests from '../utils/requests';
+import { Movie } from '../typings';
+import { useRecoilValue } from 'recoil';
+import { collapseState } from '../atoms/collapse';
+import { Search } from '../components/Search';
 
 export type Props = {
   popularTVs: Movie[];
 };
 
 const TVs = ({ popularTVs }: Props) => {
+  const collapse = useRecoilValue(collapseState);
+
   console.log(popularTVs);
   return (
     <div>
@@ -16,7 +19,14 @@ const TVs = ({ popularTVs }: Props) => {
         <title>Entertainment-web-app</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      popularTVs
+
+      <main
+        className={`relative left-[84px] min-h-screen w-[calc(100%-84px)] transition-all duration-300 ${
+          !collapse && 'left-[250px] w-[calc(100%-250px)]'
+        }`}
+      >
+        <Search />
+      </main>
     </div>
   );
 };

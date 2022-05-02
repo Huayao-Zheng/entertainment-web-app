@@ -1,9 +1,8 @@
 import Head from 'next/head';
-
-import { Movie, TV } from '../typings';
 import requests from '../utils/requests';
-
-import { SidebarMenu } from '../components/SidebarMenu';
+import { Movie, TV } from '../typings';
+import { useRecoilValue } from 'recoil';
+import { collapseState } from '../atoms/collapse';
 import { Search } from '../components/Search';
 
 export type Props = {
@@ -13,6 +12,8 @@ export type Props = {
 };
 
 const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
+  const collapse = useRecoilValue(collapseState);
+
   console.log({ trendingNow, popularMovies, popularTVs });
 
   return (
@@ -22,7 +23,11 @@ const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
         <link rel="icon" href="/logo.svg" />
       </Head>
 
-      <main className="relative left-[84px] min-h-screen w-[calc(100%-84px)] ">
+      <main
+        className={`relative left-[84px] min-h-screen w-[calc(100%-84px)] transition-all duration-300 ${
+          !collapse && 'left-[250px] w-[calc(100%-250px)]'
+        }`}
+      >
         <Search />
       </main>
     </>
