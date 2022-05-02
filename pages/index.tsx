@@ -19,7 +19,7 @@ const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
         <link rel="icon" href="/logo.svg" />
       </Head>
 
-      <Search />
+      <Search placeholderText="Search for movies or TV series" />
     </>
   );
 };

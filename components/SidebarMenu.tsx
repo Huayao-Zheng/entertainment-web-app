@@ -44,8 +44,7 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
         <BiChevronLeft
           onClick={() => setCollapse(!collapse)}
           className={`absolute top-1/2 -right-6 flex h-6 w-6 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-primary-color text-[white] transition-all duration-300 
-          ${darkMode && 'translate-y-0'} 
-          ${collapse && 'rotate-180 sm:translate-x-4'}`}
+          ${collapse && 'rotate-180 sm:translate-x-5'}`}
         />
       </header>
 
