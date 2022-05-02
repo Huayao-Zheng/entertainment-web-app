@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useDarkMode } from '../hook/useDarkMode';
-import { useRecoilState } from 'recoil';
-import { collapseState } from '../atoms/collapse';
 import {
   BiBookmark,
   BiChevronLeft,
@@ -14,15 +12,19 @@ import {
   BiTv,
 } from 'react-icons/bi';
 
-export const SidebarMenu = () => {
+type Props = {
+  collapse: boolean;
+  setCollapse: (state: boolean) => void;
+};
+
+export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
   const { pathname } = useRouter();
   const [darkMode, setDarkMode] = useDarkMode();
-  const [collapse, setCollapse] = useRecoilState(collapseState);
 
   return (
     <nav
       className={`fixed top-0 left-0 z-50 h-full w-[250px] bg-sidebar-color px-3 py-4 transition-all duration-300 dark:bg-d-sidebar-color ${
-        collapse && 'w-[84px]'
+        collapse && 'w-[84px] sm:-left-[84px]'
       }`}
     >
       <header className="relative">
@@ -43,7 +45,7 @@ export const SidebarMenu = () => {
           onClick={() => setCollapse(!collapse)}
           className={`absolute top-1/2 -right-6 flex h-6 w-6 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-primary-color text-[white] transition-all duration-300 
           ${darkMode && 'translate-y-0'} 
-          ${collapse && 'rotate-180'}`}
+          ${collapse && 'rotate-180 sm:translate-x-4'}`}
         />
       </header>
 

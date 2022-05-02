@@ -5,6 +5,7 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    screens: { sm: { max: '639px' } },
     colors: {
       'body-color': '#e4e9f7',
       'sidebar-color': '#fff',
