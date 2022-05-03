@@ -10,7 +10,7 @@ export type Props = {
 };
 
 const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
-  console.log({ trendingNow, popularMovies, popularTVs });
+  console.log({ trendingNow });
 
   return (
     <>

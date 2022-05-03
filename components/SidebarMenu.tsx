@@ -24,7 +24,7 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
   return (
     <nav
       className={`fixed top-0 left-0 z-50 h-full w-[250px] bg-sidebar-color px-3 py-4 transition-all duration-300 dark:bg-d-sidebar-color ${
-        collapse && 'w-[84px] sm:-left-[84px]'
+        collapse && 'w-[84px] sm:w-14 sm:px-1'
       }`}
     >
       <header className="relative">
@@ -43,8 +43,9 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
 
         <BiChevronLeft
           onClick={() => setCollapse(!collapse)}
-          className={`absolute top-1/2 -right-6 flex h-6 w-6 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-primary-color text-[white] transition-all duration-300 
-          ${collapse && 'rotate-180 sm:translate-x-5'}`}
+          className={`absolute top-1/2 -right-6 flex h-6 w-6 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-primary-color text-[white] transition-all duration-300 ${
+            collapse && 'rotate-180 sm:-right-4'
+          }`}
         />
       </header>
 
@@ -52,9 +53,11 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
         <div>
           <ul>
             <Link href="/">
-              <li className="mt-3 h-12">
+              <li className="mt-3 h-10">
                 <a className={pathname == '/' ? 'link active' : 'link'}>
-                  <BiHomeAlt className="min-w-[60px] text-xl" />
+                  <BiHomeAlt
+                    className={`min-w-[60px] text-xl sm:min-w-[46px]`}
+                  />
                   <span
                     className={`text-lg transition-all duration-300 
                     ${collapse && 'opacity-0'}`}
@@ -66,9 +69,11 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
             </Link>
 
             <Link href="/movies">
-              <li className="mt-3 h-12">
+              <li className="mt-3 h-10">
                 <a className={pathname == '/movies' ? 'link active' : 'link'}>
-                  <BiMoviePlay className="min-w-[60px]" />
+                  <BiMoviePlay
+                    className={`min-w-[60px] text-xl sm:min-w-[46px]`}
+                  />
                   <span
                     className={`text-lg transition-all duration-300 
                     ${collapse && 'opacity-0'}`}
@@ -80,9 +85,9 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
             </Link>
 
             <Link href="/tvs">
-              <li className="mt-3 h-12">
+              <li className="mt-3 h-10">
                 <a className={pathname == '/tvs' ? 'link active' : 'link'}>
-                  <BiTv className="min-w-[60px]" />
+                  <BiTv className={`min-w-[60px] text-xl sm:min-w-[46px]`} />
                   <span
                     className={`text-lg transition-all duration-300 
                     ${collapse && 'opacity-0'}`}
@@ -94,11 +99,13 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
             </Link>
 
             <Link href="/bookmarked">
-              <li className="mt-3 h-12">
+              <li className="mt-3 h-10">
                 <a
                   className={pathname == '/bookmarked' ? 'link active' : 'link'}
                 >
-                  <BiBookmark className="min-w-[60px]" />
+                  <BiBookmark
+                    className={`min-w-[60px] text-xl sm:min-w-[46px]`}
+                  />
                   <span
                     className={`text-lg transition-all duration-300 
                     ${collapse && 'opacity-0'}`}
@@ -112,9 +119,9 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
         </div>
 
         <ul>
-          <li className="mt-3 h-12">
+          <li className="mt-3 h-10">
             <a href="#" className="link">
-              <BiLogOut className="min-w-[60px]" />
+              <BiLogOut className={`min-w-[60px] text-xl sm:min-w-[46px]`} />
               <span
                 className={`text-lg transition-all duration-300 
                 ${collapse && 'opacity-0'}`}
@@ -124,11 +131,11 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
             </a>
           </li>
 
-          <li className="mt-3 h-12">
+          <li className="mt-3 h-10">
             <div className="link relative cursor-default bg-primary-color-light hover:bg-primary-color-light hover:text-text-color dark:bg-d-primary-color-light dark:text-d-text-color">
               {darkMode ? (
                 <>
-                  <BiSun className="min-w-[60px]" />
+                  <BiSun className="min-w-[60px] text-xl sm:min-w-[46px]" />
                   <span
                     className={`text-lg transition-all duration-300 
                     ${collapse && 'opacity-0'}`}
@@ -138,7 +145,7 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
                 </>
               ) : (
                 <>
-                  <BiMoon className="min-w-[60px]" />
+                  <BiMoon className="min-w-[60px] text-xl sm:min-w-[46px]" />
                   <span
                     className={`text-lg transition-all duration-300 
                     ${collapse && 'opacity-0'}`}
@@ -148,7 +155,11 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
                 </>
               )}
 
-              <div className="absolute right-0 flex h-full min-w-[60px] items-center justify-center transition-all duration-300">
+              <div
+                className={`absolute right-0 flex h-full min-w-[60px] items-center justify-center transition-all duration-300 sm:min-w-[48px] ${
+                  collapse ? 'sm:right-[2px] sm:min-w-[44px]' : 'sm:right-4'
+                }`}
+              >
                 <span
                   onClick={() => setDarkMode(!darkMode)}
                   className={`toggle-switch ${!darkMode && 'before:left-5'}`}
