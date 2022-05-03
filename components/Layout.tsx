@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const Layout = ({ children }: Props) => {
-  const [collapse, setCollapse] = useState(false);
+  const [collapse, setCollapse] = useState(true);
 
   return (
     <>

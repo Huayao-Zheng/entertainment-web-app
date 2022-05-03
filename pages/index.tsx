@@ -2,6 +2,7 @@ import Head from 'next/head';
 import requests from '../utils/requests';
 import { Movie, TV } from '../typings';
 import { Search } from '../components/Search';
+import { Trending } from '../components/Trending';
 
 export type Props = {
   trendingNow: Movie[];
@@ -10,8 +11,6 @@ export type Props = {
 };
 
 const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
-  console.log({ trendingNow });
-
   return (
     <>
       <Head>
@@ -20,6 +19,8 @@ const Home = ({ trendingNow, popularMovies, popularTVs }: Props) => {
       </Head>
 
       <Search placeholderText="Search for movies or TV series" />
+
+      <Trending movies={trendingNow} />
     </>
   );
 };

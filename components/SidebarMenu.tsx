@@ -33,11 +33,11 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
 
           <div
             className={`flex flex-col text-lg font-medium text-text-color transition duration-300 dark:text-d-text-color ${
-              collapse && 'opacity-0'
+              collapse && 'overflow-x-hidden opacity-0'
             }`}
           >
             <span>Entertainment</span>
-            <span className="-mt-2">Web app</span>
+            <span className="-mt-2 whitespace-nowrap">Web app</span>
           </div>
         </div>
 

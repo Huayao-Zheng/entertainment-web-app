@@ -19,7 +19,7 @@ export const Search = ({ placeholderText }: Props) => {
       onSubmit={handleSubmit}
       className="flex items-center gap-x-4 px-8 pt-6 lg:gap-x-6 lg:px-9 lg:pt-8 sm:px-5"
     >
-      <BiSearch className="h-6 w-6 text-text-color  transition duration-300 dark:text-d-text-color" />
+      <BiSearch className="h-6 w-6 text-text-color transition duration-300 dark:text-d-text-color md:h-8 md:w-8" />
 
       <input
         onChange={(e) => setSearchTerm(e.target.value)}
