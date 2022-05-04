@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 
-import { Movie } from '../typings';
+import { certification, Movie } from '../typings';
 
 import { Thumbnail } from './Thumbnail';
 
 type Props = {
-  movies: Movie[];
+  trendingNow: Movie[];
+  certifications: certification[];
 };
 
-export const Trending = ({ movies }: Props) => {
+export const Trending = ({ trendingNow, certifications }: Props) => {
   const rowRef = useRef<HTMLDivElement>(null);
   const [isHead, setIsHead] = useState<boolean>(true);
   const [isTail, setIsTail] = useState<boolean>(false);
@@ -61,8 +62,8 @@ export const Trending = ({ movies }: Props) => {
           ref={rowRef}
           className="flex items-center gap-x-4 overflow-x-scroll py-2 px-4 scrollbar-hide md:gap-x-10 md:px-6"
         >
-          {movies.map((movie) => (
-            <Thumbnail key={movie.id} movie={movie} />
+          {trendingNow.map((media) => (
+            <Thumbnail key={media.id} media={media} />
           ))}
         </div>
 

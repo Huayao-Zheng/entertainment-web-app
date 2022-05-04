@@ -17,18 +17,11 @@ export type Movie = {
   vote_count: number;
 };
 
-export type TV = {
-  backdrop_path: string;
-  first_air_date: string;
-  genre_ids: number[];
+export type certification = {
   id: number;
-  name: string;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
+  results: {
+    iso_3166_1: string;
+    release_dates: { certification: 'string' | undefined }[];
+    rating: string;
+  }[];
 };

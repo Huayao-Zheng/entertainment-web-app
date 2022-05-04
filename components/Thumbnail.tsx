@@ -3,17 +3,17 @@ import React, { memo } from 'react';
 import { Movie } from '../typings';
 
 type Props = {
-  movie: Movie;
+  media: Movie;
 };
 
-export const Thumbnail = memo(({ movie }: Props) => {
-  //   console.log(movie);
+export const Thumbnail = memo(({ media }: Props) => {
+  //   console.log(media);
 
   return (
     <div className="relative min-h-[140px] min-w-[240px] cursor-pointer transition duration-200 ease-out md:min-h-[230px] md:min-w-[470px] md:hover:scale-105">
       <Image
         src={`https://image.tmdb.org/t/p/w500${
-          movie.backdrop_path || movie.poster_path
+          media.backdrop_path || media.poster_path
         }`}
         className="rounded-lg object-cover"
         layout="fill"
@@ -21,11 +21,11 @@ export const Thumbnail = memo(({ movie }: Props) => {
 
       <div className="absolute">
         <div>
-          <div>{movie.release_date || movie.first_air_date}</div>
-          <div>{movie.media_type}</div>
+          <div>{media.release_date || media.first_air_date}</div>
+          <div>{media.media_type}</div>
         </div>
-        {/* <h2>{movie.title ? movie.title : movie.name}</h2> */}
-        <h2>{movie.title || movie.name}</h2>
+        {/* <h2>{media.title ? media.title : media.name}</h2> */}
+        <h2>{media.title || media.name}</h2>
       </div>
     </div>
   );
