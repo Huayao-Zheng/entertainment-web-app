@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { memo } from 'react';
 import { Movie } from '../typings';
 
 type Props = {
   movie: Movie;
 };
 
-export const Thumbnail = ({ movie }: Props) => {
+export const Thumbnail = memo(({ movie }: Props) => {
   return (
     <div className="relative min-h-[140px] min-w-[240px] cursor-pointer transition duration-200 ease-out md:min-h-[230px] md:min-w-[470px] md:hover:scale-105">
       <Image
@@ -16,6 +16,11 @@ export const Thumbnail = ({ movie }: Props) => {
         className="rounded-lg object-cover"
         layout="fill"
       />
+
+      <div className="absolute">
+        <span></span>
+        <h2>{movie.title}</h2>
+      </div>
     </div>
   );
-};
+});

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+
 import { Movie } from '../typings';
+
 import { Thumbnail } from './Thumbnail';
 
 type Props = {
@@ -13,8 +15,9 @@ export const Trending = ({ movies }: Props) => {
   const [isTail, setIsTail] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleIcons = () => {
       const { scrollLeft, scrollWidth, clientWidth } = rowRef.current!;
+
       scrollLeft === 0 ? setIsHead(true) : setIsHead(false);
 
       scrollWidth - scrollLeft === clientWidth
@@ -22,9 +25,9 @@ export const Trending = ({ movies }: Props) => {
         : setIsTail(false);
     };
 
-    rowRef.current!.addEventListener('scroll', handleScroll);
+    rowRef.current!.addEventListener('scroll', handleIcons);
 
-    return () => rowRef.current!.removeEventListener('scroll', handleScroll);
+    return () => rowRef.current!.removeEventListener('scroll', handleIcons);
   }, []);
 
   const handleClick = (scrollDirection: string) => {
