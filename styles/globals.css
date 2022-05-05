@@ -20,4 +20,18 @@
   .toggle-switch {
     @apply relative h-[22px] w-[44px] cursor-pointer rounded-full  bg-toggle-color before:absolute before:top-1/2 before:left-[5px] before:h-[15px]  before:w-[15px] before:-translate-y-1/2 before:rounded-full before:bg-sidebar-color before:transition-all before:duration-300 before:content-[''] dark:bg-d-toggle-color dark:before:bg-d-sidebar-color;
   }
+
+  .revealPlayOnHover:hover > .play {
+    @apply visible;
+  }
+
+  .bookmark {
+    @apply absolute top-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-darkBlue/50 hover:bg-[white];
+  }
+  .bookmark > svg {
+    @apply h-4 w-4 text-[white];
+  }
+  .bookmark:hover > svg {
+    @apply text-darkBlue;
+  }
 }

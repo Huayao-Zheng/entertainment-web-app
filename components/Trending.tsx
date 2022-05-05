@@ -63,7 +63,11 @@ export const Trending = ({ trendingNow, certifications }: Props) => {
           className="flex items-center gap-x-4 overflow-x-scroll py-2 px-4 scrollbar-hide md:gap-x-10 md:px-6"
         >
           {trendingNow.map((media) => (
-            <Thumbnail key={media.id} media={media} />
+            <Thumbnail
+              key={media.id}
+              media={media}
+              certifications={certifications}
+            />
           ))}
         </div>
 

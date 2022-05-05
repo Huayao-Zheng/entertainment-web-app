@@ -32,48 +32,16 @@ export const getServerSideProps = async () => {
     res.json()
   );
 
+  // get certifications or ratings for each media
   const certifications = await Promise.all(
     trendingNow.results.map((media: Movie) =>
       media.media_type === 'movie'
-        ? fetch(
-            `https://api.themoviedb.org/3/movie/${media.id}/release_dates?api_key=f0f104174970501943df661d92b61131&language=en-US`
-          ).then((res) => res.json())
-        : fetch(
-            `https://api.themoviedb.org/3/tv/${media.id}/content_ratings?api_key=f0f104174970501943df661d92b61131&language=en-US`
-          ).then((res) => res.json())
+        ? fetch(requests.fetchMovieCertificationById(media.id)).then((res) =>
+            res.json()
+          )
+        : fetch(requests.fetchTVRatingById(media.id)).then((res) => res.json())
     )
   );
-  // .then((res) => {
-  //   let reformed = res.map(({ results }: certification, idx) => {
-  //     const newObj = {};
-
-  //     results.forEach((obj: { iso_3166_1: string; rating: string }) => {
-  //       if (obj.iso_3166_1 === 'US') {
-  //         if (obj.rating) {
-  //           newObj.certification = obj.rating;
-  //         } else {
-  //           const cert = obj.release_dates.find(
-  //             (obj1: { certification: string }) => obj1.certification !== ''
-  //           );
-
-  //           newObj.certification = cert ? cert.certification : null;
-  //         }
-  //       }
-  //     });
-
-  //     return newObj;
-  //   });
-
-  //   return reformed;
-  // });
-
-  // const trendingWithCerts = trendingNow.results.map(
-  //   (movie: { certification: any }, idx: number) => {
-  //     movie.certification = certifications[idx].certification;
-
-  //     return movie;
-  //   }
-  // );
 
   return {
     props: {

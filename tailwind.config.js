@@ -35,6 +35,12 @@ module.exports = {
     fontFamily: {
       outfit: ['Outfit', 'sans-serif'],
     },
+    backgroundImage: {
+      'gradient-to-b':
+        'linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.75) 100%);',
+      'gradient-whole':
+        'linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))',
+    },
     extend: {},
   },
   plugins: [require('tailwind-scrollbar-hide')],
