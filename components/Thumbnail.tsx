@@ -4,6 +4,7 @@ import { certification, Movie } from '../typings';
 import { BsBookmarkCheckFill, BsBookmark } from 'react-icons/bs';
 import { BiMoviePlay, BiTv } from 'react-icons/bi';
 import { AiFillPlayCircle } from 'react-icons/ai';
+import matchCertOrRating from '../utils/matchCertOrRating';
 
 type Props = {
   media: Movie;
@@ -71,41 +72,3 @@ export const Thumbnail = memo(({ media, certifications }: Props) => {
     </div>
   );
 });
-
-function matchCertOrRating({ media, certifications }: Props) {
-  let movieCertOrTVRating: string | undefined = '';
-
-  for (let i = 0; i < certifications.length; i++) {
-    const cert = certifications[i];
-
-    if (media.id === cert.id) {
-      if (media.media_type === 'movie') {
-        for (let j = 0; j < cert.results.length; j++) {
-          const result = cert.results[j];
-
-          if (result.iso_3166_1 === 'US') {
-            for (let k = 0; k < result.release_dates.length; k++) {
-              const rd = result.release_dates[k];
-
-              movieCertOrTVRating = rd.certification;
-              break;
-            }
-          }
-        }
-      }
-
-      if (media.media_type === 'tv') {
-        for (let j = 0; j < cert.results.length; j++) {
-          const result = cert.results[j];
-
-          if (result.iso_3166_1 === 'US') {
-            movieCertOrTVRating = result.rating;
-            break;
-          }
-        }
-      }
-    }
-  }
-
-  return movieCertOrTVRating;
-}
