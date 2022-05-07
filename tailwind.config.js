@@ -6,10 +6,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     screens: {
-      '2xl': { min: '1536px' },
       xl: { min: '1280px' },
       lg: { min: '1024px' },
-      md: { min: '767px' },
+      md: { min: '768px' },
       sm: { max: '639px' },
     },
     colors: {
@@ -41,7 +40,6 @@ module.exports = {
       'gradient-whole':
         'linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))',
     },
-    extend: {},
   },
   plugins: [require('tailwind-scrollbar-hide')],
 };

@@ -4,6 +4,7 @@ import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { certification, Movie } from '../typings';
 
 import { Thumbnail } from './Thumbnail';
+import { Title } from './Title';
 
 type Props = {
   trendingNow: Movie[];
@@ -46,9 +47,7 @@ export const Trending = ({ trendingNow, certifications }: Props) => {
 
   return (
     <section className="mt-4">
-      <h1 className="mb-4 pl-4 text-xl font-light text-darkBlue transition duration-300 dark:text-d-text-color md:mb-6 md:text-4xl">
-        Trending
-      </h1>
+      <Title text="Trending" />
 
       <div className="group relative md:-ml-2">
         <BiChevronLeft

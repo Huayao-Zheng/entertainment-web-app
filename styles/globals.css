@@ -35,3 +35,36 @@
     @apply text-darkBlue;
   }
 }
+
+.grid-container {
+  display: grid;
+  margin: 0 1rem;
+  gap: 1rem 0.5rem;
+}
+@media screen and (min-width: 450px) {
+  .grid-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0.75rem;
+  }
+}
+@media screen and (min-width: 852px) {
+  .grid-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 1.75rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 1700px) {
+  .grid-container {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 2000px) {
+  .grid-container {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

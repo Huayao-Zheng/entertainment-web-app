@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React, { memo, useState } from 'react';
+import matchCertOrRating from '../utils/matchCertOrRating';
 import { certification, Movie } from '../typings';
 import { BsBookmarkCheckFill, BsBookmark } from 'react-icons/bs';
-import { BiMoviePlay, BiTv } from 'react-icons/bi';
 import { AiFillPlayCircle } from 'react-icons/ai';
-import matchCertOrRating from '../utils/matchCertOrRating';
+import { BiMoviePlay, BiTv } from 'react-icons/bi';
 
 type Props = {
   media: Movie;
@@ -25,7 +25,7 @@ export const Thumbnail = memo(({ media, certifications }: Props) => {
         layout="fill"
       />
 
-      <div className="play invisible absolute grid h-full w-full place-items-center rounded-bl-lg rounded-br-lg bg-gradient-whole text-[white]">
+      <div className="play invisible absolute grid h-full w-full place-items-center rounded-lg bg-gradient-whole text-[white]">
         <div className="flex w-32 gap-x-5 rounded-full bg-[white]/25 p-2">
           <AiFillPlayCircle className="h-8 w-8" />
           <span className="text-lg font-medium">play</span>
