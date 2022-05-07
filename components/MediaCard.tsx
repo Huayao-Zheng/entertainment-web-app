@@ -11,7 +11,7 @@ type Props = {
   certifications: certification[];
 };
 
-export const MediaInfo = memo(({ media, certifications }: Props) => {
+export const MediaCard = memo(({ media, certifications }: Props) => {
   const movieCertOrTVRating = matchCertOrRating({ media, certifications });
   const [book, setBook] = useState(false);
 

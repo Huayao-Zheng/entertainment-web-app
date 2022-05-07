@@ -8,6 +8,8 @@ const Bookmarked = () => {
         <title>Entertainment-web-app</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
+
+      {/* fetch movies or tv by id */}
     </div>
   );
 };

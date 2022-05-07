@@ -3,7 +3,8 @@ import requests from '../utils/requests';
 import { certification, Movie } from '../typings';
 import { Search } from '../components/Search';
 import { Trending } from '../components/Trending';
-import { Recommendation } from '../components/Recommendation';
+import { Title } from '../components/Title';
+import { MediaCard } from '../components/MediaCard';
 
 export type Props = {
   trendingNow: Movie[];
@@ -23,10 +24,18 @@ const Home = ({ trendingNow, recommendations, certifications }: Props) => {
 
       <Trending trendingNow={trendingNow} certifications={certifications} />
 
-      <Recommendation
-        recommendations={recommendations}
-        certifications={certifications}
-      />
+      <section className="mt-6 mb-16">
+        <Title text="Recommended for you" />
+        <div className="grid-container">
+          {recommendations.map((media) => (
+            <MediaCard
+              key={media.id}
+              media={media}
+              certifications={certifications}
+            />
+          ))}
+        </div>
+      </section>
     </>
   );
 };

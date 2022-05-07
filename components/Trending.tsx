@@ -29,7 +29,11 @@ export const Trending = ({ trendingNow, certifications }: Props) => {
 
     rowRef.current!.addEventListener('scroll', handleIcons);
 
-    return () => rowRef.current!.removeEventListener('scroll', handleIcons);
+    return () => {
+      if (rowRef.current) {
+        rowRef.current.removeEventListener('scroll', handleIcons);
+      }
+    };
   }, []);
 
   const handleClick = (scrollDirection: string) => {
