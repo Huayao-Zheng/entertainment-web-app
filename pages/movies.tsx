@@ -56,12 +56,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      popularMovies: popularMovies.results
-        .map((movie: Movie) => ({
-          ...movie,
-          media_type: 'movie',
-        }))
-        .sort(() => Math.random() - 0.5),
+      popularMovies: popularMovies.results,
       certifications,
     },
   };

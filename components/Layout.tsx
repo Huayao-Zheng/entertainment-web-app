@@ -1,12 +1,22 @@
 import { ReactNode, useState } from 'react';
+import { useRouter } from 'next/router';
 import { SidebarMenu } from './SidebarMenu';
+import { Modal } from './Modal';
+import { useRecoilValue } from 'recoil';
+import { modalState } from '../atoms/modalAtom';
 
 type Props = {
   children: ReactNode;
 };
 
 export const Layout = ({ children }: Props) => {
+  const showModal = useRecoilValue(modalState);
   const [collapse, setCollapse] = useState(true);
+  const router = useRouter();
+
+  if (router.pathname === '/login' || router.pathname === '/_error') {
+    return <>{children}</>;
+  }
 
   return (
     <>
@@ -21,6 +31,8 @@ export const Layout = ({ children }: Props) => {
       >
         {children}
       </main>
+
+      {showModal && <Modal />}
     </>
   );
 };

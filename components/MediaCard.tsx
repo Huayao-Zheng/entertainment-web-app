@@ -5,6 +5,8 @@ import { BsBookmarkCheckFill, BsBookmark } from 'react-icons/bs';
 import { AiFillPlayCircle } from 'react-icons/ai';
 import { BiMoviePlay, BiTv } from 'react-icons/bi';
 import Image from 'next/image';
+import { useRecoilState } from 'recoil';
+import { modalState, movieState } from '../atoms/modalAtom';
 
 type Props = {
   media: Movie;
@@ -12,27 +14,36 @@ type Props = {
 };
 
 export const MediaCard = memo(({ media, certifications }: Props) => {
+  const [, setShowModal] = useRecoilState(modalState);
+  const [, setCurrentMovie] = useRecoilState(movieState);
   const movieCertOrTVRating = matchCertOrRating({ media, certifications });
   const [book, setBook] = useState(false);
 
   return (
-    <div className="">
-      <div className="revealPlayOnHover relative aspect-video cursor-pointer transition duration-200 ease-out md:hover:scale-105">
-        <Image
-          src={`https://image.tmdb.org/t/p/w500${
-            media.backdrop_path || media.poster_path
-          }`}
-          className="rounded-lg object-cover"
-          layout="fill"
-        />
+    <div>
+      <div className="relative">
+        <div
+          onClick={() => {
+            setShowModal(true);
+            setCurrentMovie(media);
+          }}
+          className="revealPlayOnHover relative aspect-video cursor-pointer transition duration-200 ease-out md:hover:scale-105"
+        >
+          <Image
+            src={`https://image.tmdb.org/t/p/w500${
+              media.backdrop_path || media.poster_path
+            }`}
+            className="rounded-lg object-cover"
+            layout="fill"
+          />
 
-        <div className="play invisible absolute grid h-full w-full place-items-center rounded-lg rounded-br-lg bg-gradient-whole text-[white]">
-          <div className="flex w-32 gap-x-5 rounded-full bg-[white]/25 p-2">
-            <AiFillPlayCircle className="h-8 w-8" />
-            <span className="text-lg font-medium">play</span>
+          <div className="play invisible absolute grid h-full w-full place-items-center rounded-lg rounded-br-lg bg-gradient-whole text-[white]">
+            <div className="flex w-32 gap-x-5 rounded-full bg-[white]/25 p-2">
+              <AiFillPlayCircle className="h-8 w-8" />
+              <span className="text-lg font-medium">play</span>
+            </div>
           </div>
         </div>
-
         <div onClick={() => setBook(!book)} className="bookmark">
           {book ? (
             <BsBookmarkCheckFill className="!text-primary-color" />

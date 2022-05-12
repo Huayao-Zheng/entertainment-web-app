@@ -11,7 +11,6 @@ export type Props = {
 };
 
 const TVs = ({ popularTVs, certifications }: Props) => {
-  console.log(popularTVs);
   return (
     <div>
       <Head>
@@ -22,7 +21,7 @@ const TVs = ({ popularTVs, certifications }: Props) => {
       <Search placeholderText="Search for movies" />
 
       <section className="mt-6 mb-16">
-        <Title text="Movies" />
+        <Title text="TV Series" />
         <div className="grid-container">
           {popularTVs.map((media) => (
             <MediaCard
@@ -55,12 +54,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      popularTVs: popularTVs.results
-        .map((tv: Movie) => ({
-          ...tv,
-          media_type: 'tv',
-        }))
-        .sort(() => Math.random() - 0.5),
+      popularTVs: popularTVs.results,
       certifications,
     },
   };

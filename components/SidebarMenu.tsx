@@ -5,12 +5,12 @@ import {
   BiBookmark,
   BiChevronLeft,
   BiHomeAlt,
-  BiLogOut,
   BiMoon,
   BiMoviePlay,
   BiSun,
   BiTv,
 } from 'react-icons/bi';
+import { MdOutlineAccountCircle } from 'react-icons/md';
 
 type Props = {
   collapse: boolean;
@@ -121,12 +121,14 @@ export const SidebarMenu = ({ collapse, setCollapse }: Props) => {
         <ul>
           <li className="mt-3 h-10">
             <a href="#" className="link">
-              <BiLogOut className={`min-w-[60px] text-xl sm:min-w-[46px]`} />
+              <MdOutlineAccountCircle
+                className={`min-w-[60px] text-xl sm:min-w-[46px]`}
+              />
               <span
                 className={`text-lg transition-all duration-300 
                 ${collapse && 'opacity-0'}`}
               >
-                Logout
+                Account
               </span>
             </a>
           </li>
