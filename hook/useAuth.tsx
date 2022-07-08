@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setLoading(false);
         setAuthError(null);
       })
-      .catch((error) => setAuthError(error.message))
+      .catch((error) => alert(error.message))
       .finally(() => setLoading(false));
   };
 
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setLoading(false);
         setAuthError(null);
       })
-      .catch((error) => setAuthError(error.message))
+      .catch((error) => alert(error.message))
       .finally(() => setLoading(false));
   };
 

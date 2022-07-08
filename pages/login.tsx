@@ -23,40 +23,9 @@ const Login = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  useEffect(() => {
-    console.log('authError =>', authError);
-    if (authError === 'Firebase: Error (auth/user-not-found).') {
-      setError('email', {
-        message: 'User-not-found',
-      });
-    }
-    if (authError === 'Firebase: Error (auth/wrong-password).') {
-      setError('password', {
-        message: 'Wrong-password',
-      });
-    }
-    if (authError === 'Firebase: Error (auth/email-already-in-use).') {
-      setError('email', {
-        message: 'Email-already-in-use',
-      });
-    }
-    if (authError === 'Firebase: Error (auth/invalid-email).') {
-      setError('email', {
-        message: 'Invalid-email',
-      });
-    }
-    if (
-      authError ===
-      'Firebase: Password should be at least 6 characters (auth/weak-password).'
-    ) {
-      setError('password', {
-        message: 'Password should be at least 6 characters',
-      });
-    }
-  }, [authError]);
+  console.log({ errors });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log('data =>', data, 'login =>', login);
     if (login) {
       await signIn(data.email, data.password);
     } else {
@@ -113,13 +82,7 @@ const Login = () => {
                   className="input-style"
                 />
                 {/* error message */}
-                {errors.email?.message === '' ? (
-                  <p className="input-errors">Can't be empty</p>
-                ) : (
-                  errors.email && (
-                    <p className="input-errors">{errors.email.message}</p>
-                  )
-                )}
+                {errors.email && <p className="input-errors">Can't be empty</p>}
               </label>
 
               {/* password */}
@@ -134,12 +97,8 @@ const Login = () => {
                   className="input-style"
                 />
                 {/* error message */}
-                {errors.password?.message === '' ? (
+                {errors.password && (
                   <p className="input-errors">Can't be empty</p>
-                ) : (
-                  errors.password && (
-                    <p className="input-errors">{errors.password.message}</p>
-                  )
                 )}
               </label>
 
@@ -153,15 +112,16 @@ const Login = () => {
                     className="input-style"
                   />
                   {/* error message */}
-                  {errors.repeatPassword?.message === '' ? (
+                  {errors.repeatPassword?.message === '' && (
                     <p className="input-errors">Can't be empty</p>
-                  ) : (
-                    errors.repeatPassword && (
-                      <p className="input-errors">
-                        {errors.repeatPassword.message}
-                      </p>
-                    )
                   )}
+
+                  {!!errors.repeatPassword?.message &&
+                    errors.repeatPassword.message.length > 0 && (
+                      <p className="input-errors">
+                        {errors.repeatPassword?.message}
+                      </p>
+                    )}
                 </label>
               )}
             </div>
