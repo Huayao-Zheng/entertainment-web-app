@@ -15,7 +15,7 @@ const Movies = ({ popularMovies, certifications }: Props) => {
     <div>
       <Head>
         <title>Entertainment-web-app</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/static/favicon.ico" />
       </Head>
 
       <Search placeholderText="Search for movies" />

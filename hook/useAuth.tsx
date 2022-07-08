@@ -15,7 +15,7 @@ interface IAuth {
   signUp: (email: string, password: string) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  error: string | null;
+  authError: string | null;
   loading: boolean;
 }
 
@@ -24,7 +24,7 @@ const AuthContext = createContext<IAuth>({
   signUp: async () => {},
   signIn: async () => {},
   logout: async () => {},
-  error: null,
+  authError: null,
   loading: false,
 });
 
@@ -35,7 +35,7 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
-  const [error] = useState(null);
+  const [authError, setAuthError] = useState(null);
   const [initialLoading, setInitialLoading] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -66,8 +66,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setUser(userCredential.user);
         router.push('/');
         setLoading(false);
+        setAuthError(null);
       })
-      .catch((error) => alert(error.message))
+      .catch((error) => setAuthError(error.message))
       .finally(() => setLoading(false));
   };
 
@@ -78,8 +79,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setUser(userCredential.user);
         router.push('/');
         setLoading(false);
+        setAuthError(null);
       })
-      .catch((error) => alert(error.message))
+      .catch((error) => setAuthError(error.message))
       .finally(() => setLoading(false));
   };
 
@@ -95,8 +97,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const memoedValue = useMemo(
-    () => ({ user, signUp, signIn, error, loading, logout }),
-    [user, loading, error]
+    () => ({ user, signUp, signIn, authError, loading, logout }),
+    [user, loading, authError]
   );
 
   return (
@@ -106,8 +108,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   );
 };
 
-// Let's only export the `useAuth` hook instead of the context.
-// We only want to use the hook directly and never the context comopnent.
 export default function useAuth() {
   return useContext(AuthContext);
 }

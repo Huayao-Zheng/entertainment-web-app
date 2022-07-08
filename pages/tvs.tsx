@@ -15,10 +15,10 @@ const TVs = ({ popularTVs, certifications }: Props) => {
     <div>
       <Head>
         <title>Entertainment-web-app</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/static/favicon.ico" />
       </Head>
 
-      <Search placeholderText="Search for movies" />
+      <Search placeholderText="Search for TV series" />
 
       <section className="mt-6 mb-16">
         <Title text="TV Series" />

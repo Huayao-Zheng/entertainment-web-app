@@ -6,7 +6,7 @@ const Bookmarked = () => {
     <div>
       <Head>
         <title>Entertainment-web-app</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/static/favicon.ico" />
       </Head>
 
       {/* fetch movies or tv by id */}

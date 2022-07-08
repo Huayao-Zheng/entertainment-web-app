@@ -17,7 +17,7 @@ const Home = ({ trendingNow, recommendations, certifications }: Props) => {
     <>
       <Head>
         <title>Entertainment-web-app</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/static/favicon.ico" />
       </Head>
 
       <Search placeholderText="Search for movies or TV series" />

@@ -34,6 +34,13 @@
   .bookmark:hover > svg {
     @apply text-darkBlue;
   }
+
+  .input-style {
+    @apply block h-11 w-full border-b-[1px] bg-transparent pl-4 caret-primaryRed focus-visible:outline-none dark:border-greyishBlue dark:text-[white] dark:placeholder:text-[white]/50 dark:focus-visible:border-[white];
+  }
+  .input-errors {
+    @apply absolute top-1/2 right-0 -translate-y-1/2 p-1 text-[13px] text-primaryRed;
+  }
 }
 
 .grid-container {
